@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model SteamUser {
+  id                Int      @id @default(autoincrement())
+  steamId           BigInt   @unique
+  personName        String
+  profileurl        String
+  avatar            String
+  avatarmedium      String
+  avatarfull        String
+  avatarhash        String
+  lastlogoff        Int
+  personastate      Int
+  primaryclanid     String
+  timecreated       Int
+  personastateflags Int
+  displayName       String
+  createdAt         DateTime @default(now())
+}
+
